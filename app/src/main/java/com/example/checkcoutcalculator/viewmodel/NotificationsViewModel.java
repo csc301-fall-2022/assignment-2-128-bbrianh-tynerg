@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.ui.notifications;
+package com.example.checkcoutcalculator.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

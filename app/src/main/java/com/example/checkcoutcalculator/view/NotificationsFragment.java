@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.ui.notifications;
+package com.example.checkcoutcalculator.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.checkcoutcalculator.databinding.FragmentNotificationsBinding;
+import com.example.checkcoutcalculator.viewmodel.NotificationsViewModel;
 
 public class NotificationsFragment extends Fragment {
 
