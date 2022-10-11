@@ -3,7 +3,7 @@ package com.example.checkcoutcalculator.model;
 public class CheckoutCalculator {
     private final CartManager cartManager;
     private double taxRate;
-    private double discountRate;
+    private Discount discount;
 
     /**
      * Constructor:
@@ -13,15 +13,15 @@ public class CheckoutCalculator {
     public CheckoutCalculator(CartManager cartManager) {
         this.cartManager = cartManager;
         this.taxRate = 0.0;
-        this.discountRate = 0.0;
+        this.discount = null;
     }
 
     /**
      * Setter method of discount rate
-     * @param discountRate the new discount rate
+     * @param discount the new discount
      */
-    public void setDiscountRate(double discountRate) {
-        this.discountRate = discountRate;
+    public void setDiscountRate(Discount discount) {
+        this.discount= discount;
     }
 
     /**
@@ -33,10 +33,18 @@ public class CheckoutCalculator {
     }
 
     /**
+     * Getter method of discount
+     * @return the discount of the discount object
+     */
+    public Discount getDiscount() {
+        return this.discount;
+    }
+
+    /**
      * Get final price after applying tax and discounts
      * @return final price after applying tax and discounts
      */
     public double getFinalPrice() {
-        return cartManager.getTotalPrice() * (1.0 + taxRate) * (1.0 - discountRate);
+        return this.discount.priceAfterDiscount(cartManager.getTotalPrice() * (1.0 + taxRate));
     }
 }
