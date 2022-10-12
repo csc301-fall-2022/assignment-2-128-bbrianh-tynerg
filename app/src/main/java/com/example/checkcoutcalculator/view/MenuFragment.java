@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.checkcoutcalculator.databinding.FragmentDashboardBinding;
 import com.example.checkcoutcalculator.viewmodel.DashboardViewModel;
 
-public class DashboardFragment extends Fragment {
+public class MenuFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
 

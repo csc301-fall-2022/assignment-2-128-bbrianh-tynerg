@@ -9,17 +9,21 @@
         android:id="@+id/navigation_home"
         android:name="com.example.checkcoutcalculator.view.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.checkcoutcalculator.view.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:id="@+id/navigation_menu"
+        android:name="com.example.checkcoutcalculator.view.MenuFragment"
+        android:label="@string/title_menu"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.checkcoutcalculator.view.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:id="@+id/navigation_cart"
+        android:name="com.example.checkcoutcalculator.view.CartFragment"
+        android:label="@string/title_cart"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.checkcoutcalculator.databinding.FragmentNotificationsBinding;
 import com.example.checkcoutcalculator.viewmodel.NotificationsViewModel;
 
-public class NotificationsFragment extends Fragment {
+public class CartFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
 
