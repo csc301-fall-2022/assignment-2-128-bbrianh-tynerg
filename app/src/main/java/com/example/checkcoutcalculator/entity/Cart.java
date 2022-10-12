@@ -7,6 +7,7 @@ public class Cart {
     private final Menu menu;
     private final Map<String, CartItem> items;
     private double totalPrice;
+    private int itemCount;
 
     /**
      * Constructor:
@@ -34,11 +35,13 @@ public class Cart {
             else {
                 CartItem addedItem = new CartItem(itemName, price);
                 this.items.put(itemName, addedItem);
+                this.itemCount++;
                 this.totalPrice += addedItem.getPrice();
             }
         }
         else {
             item.addOne();
+            this.itemCount++;
             this.totalPrice += item.getPrice();
         }
         return true;
@@ -59,6 +62,7 @@ public class Cart {
                 // remove item if quantity drops to 0
                 this.items.remove(itemName);
             }
+            this.itemCount--;
             this.totalPrice -= item.getPrice();
             return true;
         }
@@ -78,5 +82,9 @@ public class Cart {
      */
     public Map<String, CartItem> getItems(){
         return this.items;
+    }
+
+    public int getItemCount() {
+        return this.itemCount;
     }
 }
