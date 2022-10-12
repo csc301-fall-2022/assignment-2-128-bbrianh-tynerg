@@ -1,5 +1,6 @@
 package com.example.checkcoutcalculator.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.databinding.FragmentHomeBinding;
 import com.example.checkcoutcalculator.viewmodel.HomeViewModel;
+
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -39,8 +44,12 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.button_homepage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(HomeFragment.this)
-                        .navigate(R.id.action_navigation_home_to_navigation_menu);
+//                NavHostFragment.findNavController(HomeFragment.this)
+//                        .navigate(R.id.action_navigation_home_to_navigation_menu);
+
+                Fragment menuFragment = new MenuFragment();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.container, menuFragment).commit();
             }
         });
     }
@@ -50,4 +59,5 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }
