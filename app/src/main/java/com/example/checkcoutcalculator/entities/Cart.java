@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.entity;
+package com.example.checkcoutcalculator.entities;
 
 import java.util.HashMap;
 import java.util.Map;

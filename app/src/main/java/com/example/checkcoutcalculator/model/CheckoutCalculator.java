@@ -1,17 +1,25 @@
 package com.example.checkcoutcalculator.model;
 
+import com.example.checkcoutcalculator.db.CartItem;
+import com.example.checkcoutcalculator.db.CartRepository;
+import com.example.checkcoutcalculator.db.MenuItem;
+import com.example.checkcoutcalculator.db.MenuRepository;
+
+import java.util.List;
+
 public class CheckoutCalculator {
-    private final CartManager cartManager;
+    private CartRepository cart;
+    private MenuRepository menu;
     private double taxRate;
     private Discount discount;
 
     /**
      * Constructor:
      * Initialize a CheckoutCalculator with a cartManager
-     * @param cartManager calculate price from this manager
      */
-    public CheckoutCalculator(CartManager cartManager) {
-        this.cartManager = cartManager;
+    public CheckoutCalculator(CartRepository cart, MenuRepository menu) {
+        this.cart = cart;
+        this.menu = menu;
         this.taxRate = 0.0;
         this.discount = null;
     }
@@ -45,6 +53,20 @@ public class CheckoutCalculator {
      * @return final price after applying tax and discounts
      */
     public double getFinalPrice() {
-        return this.discount.priceAfterDiscount(cartManager.getTotalPrice() * (1.0 + taxRate));
+        List<CartItem> allItems = cart.getAllItems();
+        double taxableTotal = 0.0;
+        double nonTaxableTotal = 0.0;
+        for (CartItem item : allItems) {
+            MenuItem product = this.menu.searchItem(item.productId);
+            if (product.taxable) {
+                taxableTotal += product.price;
+            } else {
+                nonTaxableTotal += product.price;
+            }
+        }
+
+        double afterTax = taxableTotal * (1.0 + this.taxRate) + nonTaxableTotal;
+
+        return this.discount.priceAfterDiscount(afterTax);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.checkcoutcalculator.model;
 
-import com.example.checkcoutcalculator.entity.Menu;
+import com.example.checkcoutcalculator.entities.Menu;
 
 import java.util.Map;
 

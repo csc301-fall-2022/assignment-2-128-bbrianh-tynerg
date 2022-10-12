@@ -1,8 +1,8 @@
 package com.example.checkcoutcalculator;
 
-import com.example.checkcoutcalculator.entity.Cart;
-import com.example.checkcoutcalculator.entity.CartItem;
-import com.example.checkcoutcalculator.entity.Menu;
+import com.example.checkcoutcalculator.entities.Cart;
+import com.example.checkcoutcalculator.entities.CartItem;
+import com.example.checkcoutcalculator.entities.Menu;
 
 import org.junit.Before;
 import org.junit.Test;

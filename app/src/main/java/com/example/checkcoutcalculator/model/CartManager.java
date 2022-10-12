@@ -1,7 +1,7 @@
 package com.example.checkcoutcalculator.model;
 
-import com.example.checkcoutcalculator.entity.Cart;
-import com.example.checkcoutcalculator.entity.CartItem;
+import com.example.checkcoutcalculator.entities.Cart;
+import com.example.checkcoutcalculator.entities.CartItem;
 
 import java.util.HashMap;
 import java.util.Map;

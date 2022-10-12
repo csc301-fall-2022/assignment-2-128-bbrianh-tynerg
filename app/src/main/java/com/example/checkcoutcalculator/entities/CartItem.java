@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.entity;
+package com.example.checkcoutcalculator.entities;
 
 public class CartItem {
     private final String name;
