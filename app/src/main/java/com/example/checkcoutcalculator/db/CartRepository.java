@@ -13,10 +13,18 @@ public class CartRepository {
         itemDao = db.itemDao();
     }
 
+    /**
+     * Return a list of CartItems in the cart
+     * @return a list of cartItems in the cart
+     */
     public List<CartItem> getAllItems() {
         return itemDao.getAllItemInCart();
     }
 
+    /**
+     * Add item using product Id to cart
+     * @param productId the product Id of the added item
+     */
     public void addItem(int productId) {
         if (itemDao.isItemInCart(productId)) {
             CartItem item = itemDao.getCartItem(productId);
@@ -27,6 +35,10 @@ public class CartRepository {
         }
     }
 
+    /**
+     * Remove item using product Id from cart
+     * @param productId the product Id of the removed item
+     */
     public void removeItem(int productId) {
         CartItem item = itemDao.getCartItem(productId);
         if (item.quantity - 1 > 0) {
@@ -36,6 +48,10 @@ public class CartRepository {
         }
     }
 
+    /**
+     * Return the total item count in the cart
+     * @return the total item count in the cart
+     */
     public int getTotalItemCount() {
         return itemDao.getTotalItemCount();
     }

@@ -8,8 +8,8 @@ import com.example.checkcoutcalculator.db.MenuRepository;
 import java.util.List;
 
 public class CheckoutCalculator {
-    private CartRepository cart;
-    private MenuRepository menu;
+    private final CartRepository cart;
+    private final MenuRepository menu;
     private double taxRate;
     private Discount discount;
 

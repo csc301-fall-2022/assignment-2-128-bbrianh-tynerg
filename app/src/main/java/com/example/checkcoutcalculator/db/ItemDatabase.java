@@ -9,10 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Executors;
 
 @Database(entities = {CartItem.class, MenuItem.class}, version = 1)
 public abstract class ItemDatabase extends RoomDatabase {
@@ -33,6 +31,9 @@ public abstract class ItemDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    /**
+     * Pre-populating the menu table using callback function
+     */
     private static final RoomDatabase.Callback callback =
             new RoomDatabase.Callback(){
                 @Override

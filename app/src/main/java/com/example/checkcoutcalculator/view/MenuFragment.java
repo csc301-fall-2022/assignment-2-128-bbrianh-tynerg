@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,30 +35,14 @@ public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.It
                 new ViewModelProvider(this).get(MenuViewModel.class);
 
         View menuFragmentLayout = inflater.inflate(R.layout.fragment_menu, container, false);
-//        binding = FragmentDashboardBinding.inflate(inflater, container, false);
-//        View root = binding.getRoot();
 
-//        final TextView textView = binding.textDashboard;
-//        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-//        return root;
-
-        // Add the following lines to create RecyclerView
-//        List<MenuItem> menuData = menuViewModel.getMenu().getValue();
-        ArrayList<String> menuData = new ArrayList<>();
-        menuData.add("Horse");
-        menuData.add("Cow");
-        menuData.add("Camel");
-        menuData.add("Sheep");
-        menuData.add("Goat");
-        menuData.add("Pig");
-        menuData.add("Bird");
-        menuData.add("Chicken");
-        menuData.add("Duck");
         recyclerView = menuFragmentLayout.findViewById(R.id.recyclerView_menu);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(menuFragmentLayout.getContext()));
 
-        adapter = new MenuRecyclerViewAdapter(getContext(), menuData);
+        adapter = new MenuRecyclerViewAdapter(getContext(), null);
+        menuViewModel.getMenu().observe(getViewLifecycleOwner(),
+                menuItems -> adapter.setmData(menuItems));
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
