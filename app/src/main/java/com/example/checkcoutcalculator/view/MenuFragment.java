@@ -1,6 +1,5 @@
 package com.example.checkcoutcalculator.view;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,31 +7,25 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.databinding.FragmentMenuBinding;
-import com.example.checkcoutcalculator.db.MenuItem;
 import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.ItemClickListener{
 
     private FragmentMenuBinding binding;
     private RecyclerView recyclerView;
     MenuRecyclerViewAdapter adapter;
+    private MenuViewModel menuViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MenuViewModel menuViewModel =
-                new ViewModelProvider(this).get(MenuViewModel.class);
+        menuViewModel = new ViewModelProvider(this).get(MenuViewModel.class);
 
         View menuFragmentLayout = inflater.inflate(R.layout.fragment_menu, container, false);
 
