@@ -1,26 +1,20 @@
 package com.example.checkcoutcalculator;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 
 import com.example.checkcoutcalculator.view.CartFragment;
 import com.example.checkcoutcalculator.view.HomeFragment;
 import com.example.checkcoutcalculator.view.MenuFragment;
+import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.checkcoutcalculator.databinding.ActivityMainBinding;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // load database when onCreate
+        MenuViewModel menuViewModel = new ViewModelProvider(this).get(MenuViewModel.class);
+        menuViewModel.getMenu();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
