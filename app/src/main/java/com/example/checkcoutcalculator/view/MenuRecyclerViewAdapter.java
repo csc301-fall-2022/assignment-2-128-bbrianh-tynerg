@@ -1,5 +1,6 @@
 package com.example.checkcoutcalculator.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -90,5 +91,10 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+
+    public void setmData(List<String> mData) {
+        notifyDataSetChanged();
+        this.mData = mData;
     }
 }
