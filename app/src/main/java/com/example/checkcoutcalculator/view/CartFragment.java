@@ -39,21 +39,21 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 //        return root;
 
         // Add the following lines to create RecyclerView
-        ArrayList<String> menuData = new ArrayList<>();
-        menuData.add("Horse");
-        menuData.add("Cow");
-        menuData.add("Camel");
-        menuData.add("Sheep");
-        menuData.add("Goat");
-        menuData.add("Pig");
-        menuData.add("Bird");
-        menuData.add("Chicken");
-        menuData.add("Duck");
+        ArrayList<String> cartData = new ArrayList<>();
+        cartData.add("Horse");
+        cartData.add("Cow");
+        cartData.add("Camel");
+        cartData.add("Sheep");
+        cartData.add("Goat");
+        cartData.add("Pig");
+        cartData.add("Bird");
+        cartData.add("Chicken");
+        cartData.add("Duck");
         recyclerView = cartFragmentLayout.findViewById(R.id.recyclerView_cart);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(cartFragmentLayout.getContext()));
 
-        adapter = new CartRecyclerViewAdapter(getContext(), menuData);
+        adapter = new CartRecyclerViewAdapter(getContext(), cartData);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
@@ -62,7 +62,7 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(getActivity(), "Item " + adapter.getItem(position) + " added to cart! ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Item " + adapter.getItem(position) + " removed! ", Toast.LENGTH_SHORT).show();
     }
 
     @Override

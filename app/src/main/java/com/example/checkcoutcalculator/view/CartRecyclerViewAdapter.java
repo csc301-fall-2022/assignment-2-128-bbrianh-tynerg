@@ -11,25 +11,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
+    private List<String> cData;
+    private LayoutInflater cInflater;
+    private ItemClickListener cClickListener;
 
     // data is passed into the constructor
     CartRecyclerViewAdapter(Context context, List<String> data) {
-        this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.cInflater = LayoutInflater.from(context);
+        this.cData = data;
     }
 
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.menu_row, parent, false);
+        View view = cInflater.inflate(R.layout.cart_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -37,54 +36,54 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String item = mData.get(position);
-        holder.menuTextView.setText(item);
+        String item = cData.get(position);
+        holder.cartTextView.setText(item);
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return cData.size();
     }
 
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView menuTextView;
-        TextView menuPriceTextView;
-        Button menuButton;
+        TextView cartTextView;
+        TextView cartPriceTextView;
+        Button cartButtonRemove;
 //        private WeakReference<ItemClickListener> listenerRef;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            menuTextView = itemView.findViewById(R.id.textview_menu_row_name);
-            menuPriceTextView = itemView.findViewById(R.id.textview_menu_row_price);
-            menuButton = itemView.findViewById(R.id.button_menu_row);
+            cartTextView = itemView.findViewById(R.id.textview_menu_row_name);
+            cartPriceTextView = itemView.findViewById(R.id.textview_cart_row_price);
+            cartButtonRemove = itemView.findViewById(R.id.button_cart_row);
 
 //            itemView.setOnClickListener(this);
-            menuButton.setOnClickListener(this);
+            cartButtonRemove.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            if (cClickListener != null) cClickListener.onItemClick(view, getAdapterPosition());
         }
     }
 
     // convenience method for getting data at click position
     String getItem(int id) {
-        return mData.get(id);
+        return cData.get(id);
     }
 
     // convenience method for getting data at click position
     void removeItem(int id) {
-        mData.remove(id);
+        cData.remove(id);
     }
 
     // allows clicks events to be caught
     void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
+        this.cClickListener = itemClickListener;
     }
 
     // parent activity will implement this method to respond to click events
