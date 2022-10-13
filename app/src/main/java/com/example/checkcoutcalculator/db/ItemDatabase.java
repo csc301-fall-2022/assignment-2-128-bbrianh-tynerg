@@ -27,15 +27,15 @@ public abstract class ItemDatabase extends RoomDatabase {
                     "ItemDB")
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
-                    .addCallback(new RoomDatabase.Callback() { // prepopulate database
-                        @Override
-                        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                            super.onCreate(db);
-                            for(MenuItem menuItem : prepopData){
-                                getDbInstance(context).itemDao().insertMenuItem(menuItem);
-                            }
-                        }
-                    })
+//                    .addCallback(new RoomDatabase.Callback() { // prepopulate database
+//                        @Override
+//                        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+//                            super.onCreate(db);
+//                            for(MenuItem menuItem : prepopData){
+//                                getDbInstance(context).itemDao().insertMenuItem(menuItem);
+//                            }
+//                        }
+//                    })
                     .build();
         }
         return INSTANCE;

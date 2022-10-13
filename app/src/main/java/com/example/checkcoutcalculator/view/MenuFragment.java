@@ -1,5 +1,6 @@
 package com.example.checkcoutcalculator.view;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.databinding.FragmentMenuBinding;
+import com.example.checkcoutcalculator.db.MenuItem;
 import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.ItemClickListener{
 
@@ -38,6 +41,7 @@ public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.It
 //        return root;
 
         // Add the following lines to create RecyclerView
+//        List<MenuItem> menuData = menuViewModel.getMenu().getValue();
         ArrayList<String> menuData = new ArrayList<>();
         menuData.add("Horse");
         menuData.add("Cow");

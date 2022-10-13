@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_cart_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100sp">
+
+        <TextView
+            android:id="@+id/textview_cart_row_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/textview_cart_row_total_text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textview_cart_row_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="2dp"
+            android:text="@string/textview_menu_row_name_text"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp"
+            android:textStyle="" />
+
+
+        <TextView
+            android:id="@+id/textview_cart_row_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_cart_row_name"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/textview_cart_row_price_text"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_cart_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/round_corner_row_button"
+            android:text="Remove"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextNumber_cart_row"
+            android:layout_width="54dp"
+            android:layout_height="28dp"
+            android:layout_above="@+id/button_cart_row"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="12dp"
+            android:layout_toStartOf="@+id/floatingActionButton3"
+            android:ems="10"
+            android:inputType="number" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="28dp"
+            android:layout_height="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="7dp"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="45dp"
+            android:layout_toStartOf="@+id/editTextNumber_cart_row"
+            android:text="+" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

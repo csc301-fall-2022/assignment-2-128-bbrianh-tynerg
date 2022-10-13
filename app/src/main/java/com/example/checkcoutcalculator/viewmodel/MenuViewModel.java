@@ -21,7 +21,7 @@ public class MenuViewModel extends AndroidViewModel {
         super(application);
         menuRepository = new MenuRepository(application);
         mMenu = new MutableLiveData<>();
-        mMenu.setValue(menuRepository.getAllItems());
+//        mMenu.setValue(menuRepository.getAllItems());
     }
 
     public LiveData<List<MenuItem>> getMenu() {

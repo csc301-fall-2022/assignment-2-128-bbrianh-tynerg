@@ -6,6 +6,8 @@
     <string name="textview_homepage_text">Welcome!</string>
     <string name="button_homepage_text">Start Ordering</string>
     <string name="textview_menu_row_price_text">Price: %d</string>
+    <string name="textview_cart_row_price_text">Price: %d</string>
+    <string name="textview_cart_row_total_text">Subtotal: %d</string>
     <string name="button_menu_row_text">Add to Cart</string>
     <string name="textview_menu_row_name_text">Name</string>
 </resources>
