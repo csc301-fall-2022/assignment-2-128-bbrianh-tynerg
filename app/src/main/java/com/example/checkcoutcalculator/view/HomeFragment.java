@@ -17,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.databinding.FragmentHomeBinding;
 import com.example.checkcoutcalculator.viewmodel.HomeViewModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
@@ -50,6 +51,9 @@ public class HomeFragment extends Fragment {
                 Fragment menuFragment = new MenuFragment();
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.container, menuFragment).commit();
+
+                BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
+                navView.setSelectedItemId(R.id.navigation_menu);
             }
         });
     }
