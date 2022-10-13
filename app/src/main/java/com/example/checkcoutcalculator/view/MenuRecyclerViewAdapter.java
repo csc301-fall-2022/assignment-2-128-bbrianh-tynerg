@@ -4,13 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerViewAdapter.ViewHolder> {
@@ -37,7 +38,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String item = mData.get(position);
-        holder.myTextView.setText(item);
+        holder.menuTextView.setText(item);
     }
 
     // total number of rows
@@ -49,12 +50,20 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView menuTextView;
+        TextView menuPriceTextView;
+        Button menuButton;
+//        private WeakReference<ItemClickListener> listenerRef;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.textview_menu_row_name);
-            itemView.setOnClickListener(this);
+
+            menuTextView = itemView.findViewById(R.id.textview_menu_row_name);
+            menuPriceTextView = itemView.findViewById(R.id.textview_menu_row_price);
+            menuButton = itemView.findViewById(R.id.button_menu_row);
+
+//            itemView.setOnClickListener(this);
+            menuButton.setOnClickListener(this);
         }
 
         @Override

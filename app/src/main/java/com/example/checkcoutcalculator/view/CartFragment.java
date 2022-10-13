@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.checkcoutcalculator.databinding.FragmentCartBinding;
-import com.example.checkcoutcalculator.viewmodel.NotificationsViewModel;
+import com.example.checkcoutcalculator.viewmodel.CartViewModel;
 
 public class CartFragment extends Fragment {
 
@@ -19,14 +19,14 @@ public class CartFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        CartViewModel cartViewModel =
+                new ViewModelProvider(this).get(CartViewModel.class);
 
         binding = FragmentCartBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textviewMenuRowName;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        cartViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
