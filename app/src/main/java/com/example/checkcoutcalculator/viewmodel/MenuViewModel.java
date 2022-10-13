@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.checkcoutcalculator.db.MenuItem;
 import com.example.checkcoutcalculator.db.MenuRepository;
 
+import java.io.Closeable;
 import java.util.List;
 
 public class MenuViewModel extends ViewModel {
@@ -17,6 +18,7 @@ public class MenuViewModel extends ViewModel {
     private final MutableLiveData<List<MenuItem>> mMenu;
 
     public MenuViewModel(Application application) {
+        super(application);
         menuRepository = new MenuRepository(application);
         mMenu = new MutableLiveData<>();
         mMenu.setValue(menuRepository.getAllItems());

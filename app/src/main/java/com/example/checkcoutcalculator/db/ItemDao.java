@@ -7,8 +7,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.checkcoutcalculator.entities.Menu;
-
 import java.util.List;
 
 @Dao
