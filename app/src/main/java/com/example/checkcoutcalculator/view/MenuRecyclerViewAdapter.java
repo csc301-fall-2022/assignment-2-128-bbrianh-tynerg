@@ -93,6 +93,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
         void onItemClick(View view, int position);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setmData(List<String> mData) {
         notifyDataSetChanged();
         this.mData = mData;

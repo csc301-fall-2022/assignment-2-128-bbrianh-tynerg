@@ -57,7 +57,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
         ViewHolder(View itemView) {
             super(itemView);
 
-            cartTextView = itemView.findViewById(R.id.textview_menu_row_name);
+            cartTextView = itemView.findViewById(R.id.textview_cart_row_name);
             cartPriceTextView = itemView.findViewById(R.id.textview_cart_row_price);
             cartButtonRemove = itemView.findViewById(R.id.button_cart_row);
 
