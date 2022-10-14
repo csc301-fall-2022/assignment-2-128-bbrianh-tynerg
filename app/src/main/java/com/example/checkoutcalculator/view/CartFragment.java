@@ -129,7 +129,7 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
         if (item.taxable) {
             toast_text = "This item is taxed";
         } else {
-            toast_text = "Basic groceries are not taxed";
+            toast_text = "This item is not taxed";
         }
         nowShowingToast = Toast.makeText(getActivity(), toast_text, Toast.LENGTH_SHORT);
         nowShowingToast.show();
