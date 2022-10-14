@@ -16,8 +16,6 @@ import com.example.checkcoutcalculator.databinding.FragmentHomeBinding;
 import com.example.checkcoutcalculator.viewmodel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
