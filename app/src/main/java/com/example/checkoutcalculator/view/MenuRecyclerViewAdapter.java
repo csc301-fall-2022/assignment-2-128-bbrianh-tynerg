@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.view;
+package com.example.checkoutcalculator.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.checkcoutcalculator.R;
-import com.example.checkcoutcalculator.viewmodel.MenuItemDisplayInfo;
+import com.example.checkoutcalculator.R;
+import com.example.checkoutcalculator.viewmodel.MenuItemDisplayInfo;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.viewmodel;
+package com.example.checkoutcalculator.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

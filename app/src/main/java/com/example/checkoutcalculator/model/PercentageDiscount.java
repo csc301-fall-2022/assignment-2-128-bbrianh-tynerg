@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.model;
+package com.example.checkoutcalculator.model;
 
 public class PercentageDiscount implements Discount{
     private final double discountRate;

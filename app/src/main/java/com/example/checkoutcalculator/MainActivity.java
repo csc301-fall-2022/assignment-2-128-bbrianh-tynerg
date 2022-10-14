@@ -1,11 +1,11 @@
-package com.example.checkcoutcalculator;
+package com.example.checkoutcalculator;
 
 import android.os.Bundle;
 
-import com.example.checkcoutcalculator.view.CartFragment;
-import com.example.checkcoutcalculator.view.HomeFragment;
-import com.example.checkcoutcalculator.view.MenuFragment;
-import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
+import com.example.checkoutcalculator.view.CartFragment;
+import com.example.checkoutcalculator.view.HomeFragment;
+import com.example.checkoutcalculator.view.MenuFragment;
+import com.example.checkoutcalculator.viewmodel.MenuViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.checkcoutcalculator.databinding.ActivityMainBinding;
+import com.example.checkoutcalculator.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 

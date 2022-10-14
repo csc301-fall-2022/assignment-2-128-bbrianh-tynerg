@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.view;
+package com.example.checkoutcalculator.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.checkcoutcalculator.R;
-import com.example.checkcoutcalculator.databinding.FragmentMenuBinding;
-import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
+import com.example.checkoutcalculator.R;
+import com.example.checkoutcalculator.databinding.FragmentMenuBinding;
+import com.example.checkoutcalculator.viewmodel.MenuViewModel;
 
 public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.ItemClickListener{
 

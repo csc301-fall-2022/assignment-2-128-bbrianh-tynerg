@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.viewmodel;
+package com.example.checkoutcalculator.viewmodel;
 
 public class CartItemDisplayInfo {
     public int productId;

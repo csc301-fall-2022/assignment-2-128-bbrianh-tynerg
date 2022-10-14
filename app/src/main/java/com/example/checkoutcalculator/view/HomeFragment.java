@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.view;
+package com.example.checkoutcalculator.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.checkcoutcalculator.R;
-import com.example.checkcoutcalculator.databinding.FragmentHomeBinding;
-import com.example.checkcoutcalculator.viewmodel.HomeViewModel;
+import com.example.checkoutcalculator.R;
+import com.example.checkoutcalculator.databinding.FragmentHomeBinding;
+import com.example.checkoutcalculator.viewmodel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {

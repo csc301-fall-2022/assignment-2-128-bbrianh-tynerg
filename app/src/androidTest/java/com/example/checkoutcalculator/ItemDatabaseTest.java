@@ -1,27 +1,23 @@
-package com.example.checkcoutcalculator;
+package com.example.checkoutcalculator;
 
 import static org.junit.Assert.*;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.room.Room;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.example.checkcoutcalculator.db.CartItem;
-import com.example.checkcoutcalculator.db.ItemDao;
-import com.example.checkcoutcalculator.db.ItemDatabase;
-import com.example.checkcoutcalculator.db.MenuItem;
+import com.example.checkoutcalculator.db.CartItem;
+import com.example.checkoutcalculator.db.ItemDao;
+import com.example.checkoutcalculator.db.ItemDatabase;
+import com.example.checkoutcalculator.db.MenuItem;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

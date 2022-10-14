@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.checkcoutcalculator.view.HomeFragment"
+        android:name="com.example.checkoutcalculator.view.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/navigation_menu"
-        android:name="com.example.checkcoutcalculator.view.MenuFragment"
+        android:name="com.example.checkoutcalculator.view.MenuFragment"
         android:label="@string/title_menu"
         tools:layout="@layout/fragment_menu" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.example.checkcoutcalculator.view.CartFragment"
+        android:name="com.example.checkoutcalculator.view.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
 </navigation>

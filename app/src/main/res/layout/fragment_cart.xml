@@ -56,7 +56,8 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/textView_cart_card_tax"
@@ -132,7 +133,6 @@
                         android:gravity="start"
                         android:hint="@string/textInputLayout_cart_card_text"
                         android:inputType="number"
-                        android:text="0"
                         android:textColor="@color/white"
                         android:textColorHint="#ffffff"
                         android:textSize="24sp" />

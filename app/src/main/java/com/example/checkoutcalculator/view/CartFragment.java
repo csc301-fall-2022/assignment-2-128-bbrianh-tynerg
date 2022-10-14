@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.view;
+package com.example.checkoutcalculator.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,10 +13,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.checkcoutcalculator.R;
-import com.example.checkcoutcalculator.databinding.FragmentCartBinding;
-import com.example.checkcoutcalculator.viewmodel.CartItemDisplayInfo;
-import com.example.checkcoutcalculator.viewmodel.CartViewModel;
+import com.example.checkoutcalculator.R;
+import com.example.checkoutcalculator.databinding.FragmentCartBinding;
+import com.example.checkoutcalculator.viewmodel.CartItemDisplayInfo;
+import com.example.checkoutcalculator.viewmodel.CartViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class CartFragment extends Fragment implements CartRecyclerViewAdapter.ItemClickListener{

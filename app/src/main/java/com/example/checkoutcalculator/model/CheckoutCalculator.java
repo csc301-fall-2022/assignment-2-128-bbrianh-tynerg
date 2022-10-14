@@ -1,9 +1,9 @@
-package com.example.checkcoutcalculator.model;
+package com.example.checkoutcalculator.model;
 
-import com.example.checkcoutcalculator.db.CartItem;
-import com.example.checkcoutcalculator.db.CartRepository;
-import com.example.checkcoutcalculator.db.MenuItem;
-import com.example.checkcoutcalculator.db.MenuRepository;
+import com.example.checkoutcalculator.db.CartItem;
+import com.example.checkoutcalculator.db.CartRepository;
+import com.example.checkoutcalculator.db.MenuItem;
+import com.example.checkoutcalculator.db.MenuRepository;
 
 import java.util.List;
 

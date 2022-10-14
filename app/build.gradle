@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.checkcoutcalculator'
+    namespace 'com.example.checkoutcalculator'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.checkcoutcalculator"
+        applicationId "com.example.checkoutcalculator"
         minSdk 26
         targetSdk 32
         versionCode 1

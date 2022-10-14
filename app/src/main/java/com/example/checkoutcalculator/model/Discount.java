@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.model;
+package com.example.checkoutcalculator.model;
 
 public interface Discount {
     String getDiscountType();

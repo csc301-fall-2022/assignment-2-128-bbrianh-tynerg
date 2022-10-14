@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.db;
+package com.example.checkoutcalculator.db;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

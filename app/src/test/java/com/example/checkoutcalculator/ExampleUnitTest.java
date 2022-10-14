@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator;
+package com.example.checkoutcalculator;
 
 import org.junit.Test;
 

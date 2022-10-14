@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.db;
+package com.example.checkoutcalculator.db;
 
 import android.app.Application;
 

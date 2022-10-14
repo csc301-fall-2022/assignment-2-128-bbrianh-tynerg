@@ -1,4 +1,4 @@
-package com.example.checkcoutcalculator.viewmodel;
+package com.example.checkoutcalculator.viewmodel;
 
 import android.app.Application;
 
@@ -6,12 +6,12 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.checkcoutcalculator.db.CartItem;
-import com.example.checkcoutcalculator.db.CartRepository;
-import com.example.checkcoutcalculator.db.MenuItem;
-import com.example.checkcoutcalculator.db.MenuRepository;
-import com.example.checkcoutcalculator.model.CheckoutCalculator;
-import com.example.checkcoutcalculator.model.PercentageDiscount;
+import com.example.checkoutcalculator.db.CartItem;
+import com.example.checkoutcalculator.db.CartRepository;
+import com.example.checkoutcalculator.db.MenuItem;
+import com.example.checkoutcalculator.db.MenuRepository;
+import com.example.checkoutcalculator.model.CheckoutCalculator;
+import com.example.checkoutcalculator.model.PercentageDiscount;
 
 import java.util.ArrayList;
 import java.util.List;
