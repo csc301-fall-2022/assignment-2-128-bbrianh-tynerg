@@ -107,8 +107,8 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
         TextView subTotal = view.findViewById(R.id.textView_cart_card_subtotal);
         TextView taxPortion = view.findViewById(R.id.textView_cart_card_tax);
         TextView total = view.findViewById(R.id.textView_cart_card_total);
-        subTotal.setText(String.format("$%.2f", cartViewModel.getBeforeTaxTotal()));
-        taxPortion.setText(String.format("$%.2f", cartViewModel.getTaxPortion()));
-        total.setText(String.format("$%.2f", cartViewModel.getFinalPrice()));
+        subTotal.setText(String.format("Subtotal: $%.2f", cartViewModel.getBeforeTaxTotal()));
+        taxPortion.setText(String.format("Tax: $%.2f", cartViewModel.getTaxPortion()));
+        total.setText(String.format("Total: $%.2f", cartViewModel.getFinalPrice()));
     }
 }
