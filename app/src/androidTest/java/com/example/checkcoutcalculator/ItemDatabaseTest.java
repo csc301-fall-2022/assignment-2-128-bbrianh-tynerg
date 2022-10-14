@@ -36,10 +36,6 @@ public class ItemDatabaseTest {
         Context context = ApplicationProvider.getApplicationContext();
         db = Room.inMemoryDatabaseBuilder(context, ItemDatabase.class).build();
         itemDao = db.itemDao();
-        itemDao.insertMenuItem(
-                new MenuItem("a", 1.0, true),
-                new MenuItem("b", 2.5, false),
-                new MenuItem("c", 5.5, true));
     }
 
     @After

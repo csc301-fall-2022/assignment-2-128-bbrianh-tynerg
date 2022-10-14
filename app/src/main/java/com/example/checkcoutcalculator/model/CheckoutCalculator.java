@@ -20,7 +20,7 @@ public class CheckoutCalculator {
     public CheckoutCalculator(CartRepository cart, MenuRepository menu) {
         this.cart = cart;
         this.menu = menu;
-        this.taxRate = 0.0;
+        this.taxRate = 0.13;
         this.discount = new PercentageDiscount(0.0);
     }
 

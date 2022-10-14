@@ -20,4 +20,5 @@
     <string name="textView_cart_card_total_text">Total:</string>
     <string name="textInputLayout_cart_card_text">Discount(%off):</string>
     <string name="button_cart_card_text">Apply</string>
+    <string name="button_menu_text">Add more to menu</string>
 </resources>

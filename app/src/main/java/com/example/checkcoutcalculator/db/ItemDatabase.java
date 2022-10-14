@@ -51,7 +51,12 @@ public abstract class ItemDatabase extends RoomDatabase {
                 new MenuItem(1, "LV", 20000.0, true),
                 new MenuItem(2, "iPhone 14 Pro Max", 3000.0, true),
                 new MenuItem(3, "Apple (1lb)", 1.99, false),
-                new MenuItem(4, "White potato (1lb)", 2.99, false)
+                new MenuItem(4, "White potato (1lb)", 2.99, false),
+                new MenuItem(5, "Tomato (1lb)", 2.32, false),
+                new MenuItem(6, "UofT T-shirt", 120.00, true),
+                new MenuItem(7, "CS Tuition Fee", 63729.63, false),
+                new MenuItem(8, "White potato (1lb)", 2.99, false),
+                new MenuItem(9, "Brian's Brain", 0.99, true)
         );
 
         PopulateDbAsync(ItemDatabase db) {

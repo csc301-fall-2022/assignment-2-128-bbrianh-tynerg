@@ -124,6 +124,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textInputEditText_cart_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dp"
@@ -131,6 +132,7 @@
                         android:gravity="start"
                         android:hint="@string/textInputLayout_cart_card_text"
                         android:inputType="number"
+                        android:text="0"
                         android:textColor="@color/white"
                         android:textColorHint="#ffffff"
                         android:textSize="24sp" />

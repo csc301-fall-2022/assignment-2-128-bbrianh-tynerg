@@ -15,12 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.databinding.FragmentCartBinding;
-import com.example.checkcoutcalculator.databinding.FragmentMenuBinding;
 import com.example.checkcoutcalculator.viewmodel.CartItemDisplayInfo;
 import com.example.checkcoutcalculator.viewmodel.CartViewModel;
-import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
-
-import java.util.ArrayList;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class CartFragment extends Fragment implements CartRecyclerViewAdapter.ItemClickListener{
 
@@ -28,12 +25,13 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
     private RecyclerView recyclerView;
     private CartViewModel cartViewModel;
     CartRecyclerViewAdapter adapter;
+    View cartFragmentLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
-        View cartFragmentLayout = inflater.inflate(R.layout.fragment_cart, container, false);
+        cartFragmentLayout = inflater.inflate(R.layout.fragment_cart, container, false);
 
         recyclerView = cartFragmentLayout.findViewById(R.id.recyclerView_cart);
         recyclerView.setHasFixedSize(true);
@@ -44,10 +42,36 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
                 cartItems -> adapter.setcData(cartItems));
         adapter.setCartClickListener(this);
         recyclerView.setAdapter(adapter);
+        updateCheckOutBar(cartFragmentLayout);
+
+        // onc
+        cartFragmentLayout.findViewById(R.id.button_cart_card).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextInputEditText textInputView = cartFragmentLayout
+                        .findViewById(R.id.textInputEditText_cart_card);
+
+                String discount_str = textInputView.getText().toString();
+                double discount;
+                if (discount_str.equals("")){
+                    discount = 0.0;
+                } else {
+                    discount = Double.parseDouble(discount_str);
+                }
+
+                if (discount > 100){
+                    Toast.makeText(getActivity(),
+                            "Greed is a sin.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    cartViewModel.setDiscount(discount);
+                    updateCheckOutBar(cartFragmentLayout);
+                }
+            }
+        });
 
 
-        binding = FragmentCartBinding.inflate(inflater, container, false);
-        updateCheckOutBar();
         return cartFragmentLayout;
     }
 
@@ -60,7 +84,7 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
     @Override
     public void onAddClick(View view, CartItemDisplayInfo item) {
         cartViewModel.increaseItemQuantity(item.productId);
-        updateCheckOutBar();
+        updateCheckOutBar(cartFragmentLayout);
 
     }
 
@@ -69,20 +93,20 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
         if (item.quantity - 1 > 0) {
             cartViewModel.decreaseItemQuantity(item.productId);
         }
-        updateCheckOutBar();
+        updateCheckOutBar(cartFragmentLayout);
     }
 
     @Override
     public void onRemoveClick(View view, CartItemDisplayInfo item) {
         cartViewModel.removeItemFromCart(item.productId);
-        updateCheckOutBar();
+        updateCheckOutBar(cartFragmentLayout);
 
     }
 
-    public void updateCheckOutBar() {
-        TextView subTotal = binding.getRoot().findViewById(R.id.textView_cart_card_subtotal);
-        TextView taxPortion = binding.getRoot().findViewById(R.id.textView_cart_card_tax);
-        TextView total = binding.getRoot().findViewById(R.id.textView_cart_card_total);
+    public void updateCheckOutBar(View view) {
+        TextView subTotal = view.findViewById(R.id.textView_cart_card_subtotal);
+        TextView taxPortion = view.findViewById(R.id.textView_cart_card_tax);
+        TextView total = view.findViewById(R.id.textView_cart_card_total);
         subTotal.setText(String.format("$%.2f", cartViewModel.getBeforeTaxTotal()));
         taxPortion.setText(String.format("$%.2f", cartViewModel.getTaxPortion()));
         total.setText(String.format("$%.2f", cartViewModel.getFinalPrice()));

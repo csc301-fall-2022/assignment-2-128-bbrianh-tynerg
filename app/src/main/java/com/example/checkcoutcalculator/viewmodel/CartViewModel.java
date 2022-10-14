@@ -80,7 +80,7 @@ public class CartViewModel extends AndroidViewModel {
     }
 
     public void setDiscount(double percentOff) {
-        checkoutCalculator.setDiscountRate(new PercentageDiscount(percentOff));
+        checkoutCalculator.setDiscountRate(new PercentageDiscount(percentOff/100.0));
     }
 
     public double getTaxPortion() {

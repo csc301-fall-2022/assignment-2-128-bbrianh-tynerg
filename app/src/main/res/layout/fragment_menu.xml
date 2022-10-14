@@ -10,6 +10,17 @@
     android:background="@color/generalBackground"
     tools:context=".view.MenuFragment">
 
+<!--    <Button-->
+<!--        android:id="@+id/button_menu"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="62dp"-->
+<!--        android:text="@string/button_menu_text"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:background="@drawable/round_corner_row_button"/>-->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_menu"
         android:layout_width="0dp"
