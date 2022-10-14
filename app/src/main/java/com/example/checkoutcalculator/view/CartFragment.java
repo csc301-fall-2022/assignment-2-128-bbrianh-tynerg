@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
     private RecyclerView recyclerView;
     private CartViewModel cartViewModel;
     CartRecyclerViewAdapter adapter;
+    private Toast nowShowingToast;
     View cartFragmentLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -60,16 +62,25 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
                 }
 
                 if (discount > 100){
-                    Toast.makeText(getActivity(),
+                    if (nowShowingToast != null) {
+                        nowShowingToast.cancel();
+                    }
+                    nowShowingToast = Toast.makeText(getActivity(),
                             "Greed is a sin",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT);
+                    nowShowingToast.show();
                 }
                 else {
                     cartViewModel.setDiscount(discount);
                     updateCheckOutBar(cartFragmentLayout);
-                    Toast.makeText(getActivity(),
+
+                    if (nowShowingToast != null) {
+                        nowShowingToast.cancel();
+                    }
+                    nowShowingToast = Toast.makeText(getActivity(),
                             "Discount applied",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT);
+                    nowShowingToast.show();
                 }
             }
         });
@@ -103,7 +114,25 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
     public void onRemoveClick(View view, CartItemDisplayInfo item) {
         cartViewModel.removeItemFromCart(item.productId);
         updateCheckOutBar(cartFragmentLayout);
+    }
 
+    @Override
+    public void onTaxableClick(View view, CartItemDisplayInfo item) {
+        CompoundButton checkBox = (CompoundButton) view;
+        checkBox.setChecked(item.taxable);
+
+        if (nowShowingToast != null) {
+            nowShowingToast.cancel();
+        }
+
+        String toast_text;
+        if (item.taxable) {
+            toast_text = "This item is taxed";
+        } else {
+            toast_text = "This item is not taxed";
+        }
+        nowShowingToast = Toast.makeText(getActivity(), toast_text, Toast.LENGTH_SHORT);
+        nowShowingToast.show();
     }
 
     public void updateCheckOutBar(View view) {

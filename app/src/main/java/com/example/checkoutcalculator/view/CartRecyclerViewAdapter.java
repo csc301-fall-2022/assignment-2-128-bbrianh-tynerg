@@ -7,7 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Checkable;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -67,6 +70,14 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
                 cartClickListener.onRemoveClick(view, item);
             }
         });
+
+        holder.cartTaxableCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartClickListener.onTaxableClick(view, item);
+            }
+        });
+
     }
 
     // total number of rows
@@ -114,9 +125,10 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
-        void onAddClick(View view, CartItemDisplayInfo position);
-        void onMinusClick(View view, CartItemDisplayInfo position);
-        void onRemoveClick(View view, CartItemDisplayInfo position);
+        void onAddClick(View view, CartItemDisplayInfo item);
+        void onMinusClick(View view, CartItemDisplayInfo item);
+        void onRemoveClick(View view, CartItemDisplayInfo item);
+        void onTaxableClick(View view, CartItemDisplayInfo item);
     }
 
     @SuppressLint("NotifyDataSetChanged")
