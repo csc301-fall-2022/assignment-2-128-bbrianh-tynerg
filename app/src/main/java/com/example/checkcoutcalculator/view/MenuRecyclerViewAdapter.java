@@ -101,4 +101,5 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
         notifyDataSetChanged();
         this.mData = mData;
     }
+
 }
