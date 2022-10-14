@@ -61,12 +61,15 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 
                 if (discount > 100){
                     Toast.makeText(getActivity(),
-                            "Greed is a sin.",
+                            "Greed is a sin",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
                     cartViewModel.setDiscount(discount);
                     updateCheckOutBar(cartFragmentLayout);
+                    Toast.makeText(getActivity(),
+                            "Discount applied",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -108,7 +111,7 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
         TextView taxPortion = view.findViewById(R.id.textView_cart_card_tax);
         TextView total = view.findViewById(R.id.textView_cart_card_total);
         subTotal.setText(String.format("Subtotal: $%.2f", cartViewModel.getBeforeTaxTotal()));
-        taxPortion.setText(String.format("Tax: $%.2f", cartViewModel.getTaxPortion()));
+        taxPortion.setText(String.format("Tax (13%%): $%.2f", cartViewModel.getTaxPortion()));
         total.setText(String.format("Total: $%.2f", cartViewModel.getFinalPrice()));
     }
 }
