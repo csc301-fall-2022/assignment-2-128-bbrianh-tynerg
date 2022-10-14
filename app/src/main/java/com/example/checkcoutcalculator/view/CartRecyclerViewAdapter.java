@@ -1,5 +1,6 @@
 package com.example.checkcoutcalculator.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,17 +11,19 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
+import com.example.checkcoutcalculator.viewmodel.CartItemDisplayInfo;
+import com.example.checkcoutcalculator.viewmodel.MenuItemDisplayInfo;
 
 import java.util.List;
 
 public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> cData;
+    private List<CartItemDisplayInfo> cData;
     private LayoutInflater cInflater;
     private ItemClickListener cClickListener;
 
     // data is passed into the constructor
-    CartRecyclerViewAdapter(Context context, List<String> data) {
+    CartRecyclerViewAdapter(Context context, List<CartItemDisplayInfo> data) {
         this.cInflater = LayoutInflater.from(context);
         this.cData = data;
     }
@@ -36,8 +39,10 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String item = cData.get(position);
-        holder.cartTextView.setText(item);
+        CartItemDisplayInfo item = cData.get(position);
+        holder.cartTextView.setText(item.productName);
+        holder.cartPriceTextView.setText(String.format("Price: $%.2f", item.price));
+        holder.cartSubtotalTextView.setText(String.format("Subtotal: $%.2f", item.subtotal));
     }
 
     // total number of rows
@@ -51,6 +56,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView cartTextView;
         TextView cartPriceTextView;
+        TextView cartSubtotalTextView;
         Button cartButtonRemove;
 //        private WeakReference<ItemClickListener> listenerRef;
 
@@ -59,6 +65,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
 
             cartTextView = itemView.findViewById(R.id.textview_cart_row_name);
             cartPriceTextView = itemView.findViewById(R.id.textview_cart_row_price);
+            cartSubtotalTextView = itemView.findViewById(R.id.textview_cart_row_total);
             cartButtonRemove = itemView.findViewById(R.id.button_cart_row);
 
 //            itemView.setOnClickListener(this);
@@ -72,7 +79,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    CartItemDisplayInfo getItem(int id) {
         return cData.get(id);
     }
 
@@ -89,5 +96,11 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setcData(List<CartItemDisplayInfo> cData) {
+        notifyDataSetChanged();
+        this.cData = cData;
     }
 }

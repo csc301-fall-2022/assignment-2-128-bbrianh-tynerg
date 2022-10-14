@@ -53,7 +53,9 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(cartFragmentLayout.getContext()));
 
-        adapter = new CartRecyclerViewAdapter(getContext(), cartData);
+        adapter = new CartRecyclerViewAdapter(getContext(), null);
+        cartViewModel.getCartItems().observe(getViewLifecycleOwner(),
+                menuItems -> adapter.setcData(menuItems));
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 

@@ -13,7 +13,7 @@
     <string name="button_cart_row_add">+</string>
     <string name="button_cart_row_minus">-</string>
     <string name="button_cart_row_text">Remove</string>
-    <string name="checkbox_cart_row_text">Taxible</string>
+    <string name="checkbox_cart_row_text">Tax</string>
     <string name="editTextNumber_cart_row">1111</string>
     <string name="textview_cart_card_subtotal_text">Subtotal:</string>
     <string name="textView_cart_card_tax_text">Tax:</string>
