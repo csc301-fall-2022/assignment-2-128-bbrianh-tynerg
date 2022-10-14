@@ -1,0 +1,26 @@
+name: Checkout app CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2.5.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.5.1
+        with:
+          java-version: 1.8
+      - name: Gradle test
+        run: ./gradlew test
+      - name: Gradle build
+        run: ./gradlew build
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: Checkout Calculator
+          path: app/build/outputs/apk/debug/app-debug.apk
