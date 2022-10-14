@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.databinding.FragmentMenuBinding;
+import com.example.checkcoutcalculator.viewmodel.CartItemDisplayInfo;
 import com.example.checkcoutcalculator.viewmodel.CartViewModel;
 import com.example.checkcoutcalculator.viewmodel.MenuViewModel;
 
@@ -23,12 +24,12 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 
     private FragmentMenuBinding binding;
     private RecyclerView recyclerView;
+    private CartViewModel cartViewModel;
     CartRecyclerViewAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CartViewModel cartViewModel =
-                new ViewModelProvider(this).get(CartViewModel.class);
+        cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
         View cartFragmentLayout = inflater.inflate(R.layout.fragment_cart, container, false);
 //        binding = FragmentDashboardBinding.inflate(inflater, container, false);
@@ -55,21 +56,31 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 
         adapter = new CartRecyclerViewAdapter(getContext(), null);
         cartViewModel.getCartItems().observe(getViewLifecycleOwner(),
-                menuItems -> adapter.setcData(menuItems));
-        adapter.setClickListener(this);
+                cartItems -> adapter.setcData(cartItems));
+        adapter.setCartClickListener(this);
         recyclerView.setAdapter(adapter);
 
         return cartFragmentLayout;
     }
 
     @Override
-    public void onItemClick(View view, int position) {
-        Toast.makeText(getActivity(), "Item " + adapter.getItem(position) + " removed! ", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onAddClick(View view, CartItemDisplayInfo item) {
+        cartViewModel.increaseItemQuantity(item.productId);
+    }
+
+    @Override
+    public void onMinusClick(View view, CartItemDisplayInfo item) {
+        cartViewModel.decreaseItemQuantity(item.productId);
+    }
+
+    @Override
+    public void onRemoveClick(View view, CartItemDisplayInfo item) {
+        cartViewModel.removeItemFromCart(item.productId);
     }
 }

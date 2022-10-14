@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +21,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
 
     private List<CartItemDisplayInfo> cData;
     private LayoutInflater cInflater;
-    private ItemClickListener cClickListener;
+    private ItemClickListener cartClickListener;
 
     // data is passed into the constructor
     CartRecyclerViewAdapter(Context context, List<CartItemDisplayInfo> data) {
@@ -43,6 +44,28 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
         holder.cartTextView.setText(item.productName);
         holder.cartPriceTextView.setText(String.format("Price: $%.2f", item.price));
         holder.cartSubtotalTextView.setText(String.format("Subtotal: $%.2f", item.subtotal));
+        holder.cartItemQuantityView.setText(String.valueOf(item.quantity));
+
+        holder.cartButtonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartClickListener.onAddClick(view, item);
+            }
+        });
+
+        holder.cartButtonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartClickListener.onMinusClick(view, item);
+            }
+        });
+
+        holder.cartButtonRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartClickListener.onRemoveClick(view, item);
+            }
+        });
     }
 
     // total number of rows
@@ -53,12 +76,15 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView cartTextView;
         TextView cartPriceTextView;
         TextView cartSubtotalTextView;
+        EditText cartItemQuantityView;
+
         Button cartButtonRemove;
-//        private WeakReference<ItemClickListener> listenerRef;
+        Button cartButtonAdd;
+        Button cartButtonMinus;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -66,15 +92,11 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
             cartTextView = itemView.findViewById(R.id.textview_cart_row_name);
             cartPriceTextView = itemView.findViewById(R.id.textview_cart_row_price);
             cartSubtotalTextView = itemView.findViewById(R.id.textview_cart_row_total);
+            cartItemQuantityView = itemView.findViewById(R.id.editTextNumber_cart_row);
+
             cartButtonRemove = itemView.findViewById(R.id.button_cart_row);
-
-//            itemView.setOnClickListener(this);
-            cartButtonRemove.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (cClickListener != null) cClickListener.onItemClick(view, getAdapterPosition());
+            cartButtonAdd = itemView.findViewById(R.id.button_cart_row_add);
+            cartButtonMinus = itemView.findViewById(R.id.button_cart_row_minus);
         }
     }
 
@@ -83,19 +105,15 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
         return cData.get(id);
     }
 
-    // convenience method for getting data at click position
-    void removeItem(int id) {
-        cData.remove(id);
-    }
-
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.cClickListener = itemClickListener;
+    public void setCartClickListener(ItemClickListener cartClickListener) {
+        this.cartClickListener = cartClickListener;
     }
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
-        void onItemClick(View view, int position);
+        void onAddClick(View view, CartItemDisplayInfo position);
+        void onMinusClick(View view, CartItemDisplayInfo position);
+        void onRemoveClick(View view, CartItemDisplayInfo position);
     }
 
     @SuppressLint("NotifyDataSetChanged")
