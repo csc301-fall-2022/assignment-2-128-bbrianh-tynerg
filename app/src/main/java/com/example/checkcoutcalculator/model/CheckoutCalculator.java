@@ -21,7 +21,7 @@ public class CheckoutCalculator {
         this.cart = cart;
         this.menu = menu;
         this.taxRate = 0.0;
-        this.discount = null;
+        this.discount = new PercentageDiscount(0.0);
     }
 
     /**
@@ -49,6 +49,35 @@ public class CheckoutCalculator {
     }
 
     /**
+     * Get before plain total of all the items
+     */
+    public double getSubTotal() {
+        List<CartItem> allItems = cart.getAllItems();
+        double total = 0.0;
+        for (CartItem item : allItems) {
+            MenuItem product = this.menu.searchItem(item.productId);
+            total += product.price * item.quantity;
+        }
+        return total;
+    }
+
+    /**
+     * Get tax portion of the bill
+     */
+    public double getTaxPortion() {
+        List<CartItem> allItems = cart.getAllItems();
+        double taxableTotal = 0.0;
+        for (CartItem item : allItems) {
+            MenuItem product = this.menu.searchItem(item.productId);
+            if (product.taxable) {
+                taxableTotal += product.price * item.quantity;
+            }
+        }
+
+        return taxableTotal * taxRate;
+    }
+
+    /**
      * Get final price after applying tax and discounts
      * @return final price after applying tax and discounts
      */
@@ -59,9 +88,9 @@ public class CheckoutCalculator {
         for (CartItem item : allItems) {
             MenuItem product = this.menu.searchItem(item.productId);
             if (product.taxable) {
-                taxableTotal += product.price;
+                taxableTotal += product.price * item.quantity;
             } else {
-                nonTaxableTotal += product.price;
+                nonTaxableTotal += product.price * item.quantity;
             }
         }
 

@@ -10,6 +10,9 @@ import com.example.checkcoutcalculator.db.CartItem;
 import com.example.checkcoutcalculator.db.CartRepository;
 import com.example.checkcoutcalculator.db.MenuItem;
 import com.example.checkcoutcalculator.db.MenuRepository;
+import com.example.checkcoutcalculator.model.CheckoutCalculator;
+import com.example.checkcoutcalculator.model.FixedValueDiscount;
+import com.example.checkcoutcalculator.model.PercentageDiscount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +22,15 @@ public class CartViewModel extends AndroidViewModel {
     private final CartRepository cartRepository;
     private final MutableLiveData<List<CartItemDisplayInfo>> mCartItems;
 
+    private final CheckoutCalculator checkoutCalculator;
+
     public CartViewModel(Application application) {
         super(application);
         menuRepository = new MenuRepository(application);
         cartRepository = new CartRepository(application);
+
+        checkoutCalculator = new CheckoutCalculator(cartRepository, menuRepository);
+
         mCartItems = new MutableLiveData<>();
         fetchCartData();
     }
@@ -65,5 +73,21 @@ public class CartViewModel extends AndroidViewModel {
     public void removeItemFromCart(int productId) {
         cartRepository.removeEntireItem(productId);
         fetchCartData();
+    }
+
+    public double getBeforeTaxTotal() {
+        return checkoutCalculator.getSubTotal();
+    }
+
+    public void setDiscount(double percentOff) {
+        checkoutCalculator.setDiscountRate(new PercentageDiscount(percentOff));
+    }
+
+    public double getTaxPortion() {
+        return checkoutCalculator.getTaxPortion();
+    }
+
+    public double getFinalPrice() {
+        return checkoutCalculator.getFinalPrice();
     }
 }
