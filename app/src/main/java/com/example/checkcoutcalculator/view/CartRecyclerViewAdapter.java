@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.viewmodel.CartItemDisplayInfo;
-import com.example.checkcoutcalculator.viewmodel.MenuItemDisplayInfo;
 
 import java.util.List;
 

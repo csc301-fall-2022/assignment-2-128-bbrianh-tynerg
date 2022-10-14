@@ -39,17 +39,6 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 //        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 //        return root;
 
-        // Add the following lines to create RecyclerView
-        ArrayList<String> cartData = new ArrayList<>();
-        cartData.add("Horse");
-        cartData.add("Cow");
-        cartData.add("Camel");
-        cartData.add("Sheep");
-        cartData.add("Goat");
-        cartData.add("Pig");
-        cartData.add("Bird");
-        cartData.add("Chicken");
-        cartData.add("Duck");
         recyclerView = cartFragmentLayout.findViewById(R.id.recyclerView_cart);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(cartFragmentLayout.getContext()));
