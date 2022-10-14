@@ -65,7 +65,9 @@ public class CartFragment extends Fragment implements CartRecyclerViewAdapter.It
 
     @Override
     public void onMinusClick(View view, CartItemDisplayInfo item) {
-        cartViewModel.decreaseItemQuantity(item.productId);
+        if (item.quantity - 1 > 0) {
+            cartViewModel.decreaseItemQuantity(item.productId);
+        }
     }
 
     @Override
