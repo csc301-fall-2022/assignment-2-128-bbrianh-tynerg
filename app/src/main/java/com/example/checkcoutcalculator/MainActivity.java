@@ -49,12 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_menu, R.id.navigation_cart)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
     private void replaceFragment(Fragment fragment){

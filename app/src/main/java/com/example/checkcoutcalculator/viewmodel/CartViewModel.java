@@ -11,7 +11,6 @@ import com.example.checkcoutcalculator.db.CartRepository;
 import com.example.checkcoutcalculator.db.MenuItem;
 import com.example.checkcoutcalculator.db.MenuRepository;
 import com.example.checkcoutcalculator.model.CheckoutCalculator;
-import com.example.checkcoutcalculator.model.FixedValueDiscount;
 import com.example.checkcoutcalculator.model.PercentageDiscount;
 
 import java.util.ArrayList;

@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.checkcoutcalculator.R;
 import com.example.checkcoutcalculator.viewmodel.MenuItemDisplayInfo;
 
-import java.lang.ref.WeakReference;
-import java.util.Formatter;
 import java.util.List;
 
 public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerViewAdapter.ViewHolder> {
@@ -57,7 +55,6 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
         TextView menuTextView;
         TextView menuPriceTextView;
         Button menuButton;
-//        private WeakReference<ItemClickListener> listenerRef;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -66,7 +63,6 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
             menuPriceTextView = itemView.findViewById(R.id.textview_menu_row_price);
             menuButton = itemView.findViewById(R.id.button_menu_row);
 
-//            itemView.setOnClickListener(this);
             menuButton.setOnClickListener(this);
         }
 
