@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey;
 public class CartItem {
 
     @PrimaryKey(autoGenerate = true)
-    public int uid;
+    public long uid;
 
     @ColumnInfo(name = "productId")
     public int productId;

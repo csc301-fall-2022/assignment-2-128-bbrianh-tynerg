@@ -22,6 +22,7 @@ public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.It
     private RecyclerView recyclerView;
     MenuRecyclerViewAdapter adapter;
     private MenuViewModel menuViewModel;
+    private Toast onShowingToast;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +45,17 @@ public class MenuFragment extends Fragment implements MenuRecyclerViewAdapter.It
 
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(getActivity(), "Item " + adapter.getItem(position) + " added to cart! ", Toast.LENGTH_SHORT).show();
+        // Show Tost
+        if (onShowingToast != null) {
+            onShowingToast.cancel();
+        }
+        onShowingToast = Toast.makeText(getActivity(),
+                "Item " + adapter.getItem(position).productName + " added to cart! ",
+                Toast.LENGTH_SHORT);
+        onShowingToast.show();
+
+        // add Item to cart
+        menuViewModel.addItemToCart(adapter.getItem(position).productId);
     }
 
     @Override

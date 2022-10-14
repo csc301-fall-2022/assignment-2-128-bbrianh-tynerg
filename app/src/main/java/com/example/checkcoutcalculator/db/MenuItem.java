@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class MenuItem {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     public int uid;
 
     @ColumnInfo(name = "itemName")
@@ -26,7 +26,8 @@ public class MenuItem {
     public MenuItem() {}
 
     @Ignore
-    public MenuItem(String itemName, double price, boolean taxable) {
+    public MenuItem(int uid, String itemName, double price, boolean taxable) {
+        this.uid = uid;
         this.itemName = itemName;
         this.price = price;
         this.taxable = taxable;

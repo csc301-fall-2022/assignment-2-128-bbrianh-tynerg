@@ -1,19 +1,69 @@
 package com.example.checkcoutcalculator.viewmodel;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class CartViewModel extends ViewModel {
+import com.example.checkcoutcalculator.db.CartItem;
+import com.example.checkcoutcalculator.db.CartRepository;
+import com.example.checkcoutcalculator.db.MenuItem;
+import com.example.checkcoutcalculator.db.MenuRepository;
 
-    private final MutableLiveData<String> mText;
+import java.util.ArrayList;
+import java.util.List;
 
-    public CartViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+public class CartViewModel extends AndroidViewModel {
+    private final MenuRepository menuRepository;
+    private final CartRepository cartRepository;
+    private final MutableLiveData<List<CartItemDisplayInfo>> mCartItems;
+
+    public CartViewModel(Application application) {
+        super(application);
+        menuRepository = new MenuRepository(application);
+        cartRepository = new CartRepository(application);
+        mCartItems = new MutableLiveData<>();
+        fetchCartData();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<CartItemDisplayInfo>> getCartItems() {
+        return mCartItems;
+    }
+
+    public void fetchCartData() {
+        // get cart data
+        List<CartItem> items = cartRepository.getAllItems();
+        List<CartItemDisplayInfo> displayInfos = new ArrayList<>();
+
+        if (items != null) {
+            for (CartItem cartItem : items) {
+                MenuItem product = menuRepository.searchItem(cartItem.productId);
+                displayInfos.add(new CartItemDisplayInfo(
+                        product.uid,
+                        product.itemName,
+                        product.price,
+                        product.taxable,
+                        cartItem.quantity,
+                        product.price * cartItem.quantity));
+            }
+        }
+
+        mCartItems.setValue(displayInfos);
+    }
+
+    public void increaseItemQuantity(int productId) {
+        cartRepository.addItem(productId);
+        fetchCartData();
+    }
+
+    public void decreaseItemQuantity(int productId) {
+        cartRepository.decrementItemQuantity(productId);
+        fetchCartData();
+    }
+
+    public void removeItemFromCart(int productId) {
+        cartRepository.removeEntireItem(productId);
+        fetchCartData();
     }
 }

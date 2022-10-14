@@ -48,10 +48,10 @@ public abstract class ItemDatabase extends RoomDatabase {
 
         // prepopulate db data
         private static final List<MenuItem> prepopData = Arrays.asList(
-                new MenuItem("LV", 20000.0, true),
-                new MenuItem("iPhone 14 Pro Max", 3000.0, true),
-                new MenuItem("Apple (1lb)", 1.99, false),
-                new MenuItem("White potato (1lb)", 2.99, false)
+                new MenuItem(1, "LV", 20000.0, true),
+                new MenuItem(2, "iPhone 14 Pro Max", 3000.0, true),
+                new MenuItem(3, "Apple (1lb)", 1.99, false),
+                new MenuItem(4, "White potato (1lb)", 2.99, false)
         );
 
         PopulateDbAsync(ItemDatabase db) {

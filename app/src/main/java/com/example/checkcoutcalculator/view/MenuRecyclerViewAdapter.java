@@ -11,18 +11,20 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.checkcoutcalculator.R;
+import com.example.checkcoutcalculator.viewmodel.MenuItemDisplayInfo;
 
 import java.lang.ref.WeakReference;
+import java.util.Formatter;
 import java.util.List;
 
 public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<MenuItemDisplayInfo> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MenuRecyclerViewAdapter(Context context, List<String> data) {
+    MenuRecyclerViewAdapter(Context context, List<MenuItemDisplayInfo> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -38,8 +40,9 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String item = mData.get(position);
-        holder.menuTextView.setText(item);
+        MenuItemDisplayInfo item = mData.get(position);
+        holder.menuTextView.setText(item.productName);
+        holder.menuPriceTextView.setText(String.format("$%.2f", item.price));
     }
 
     // total number of rows
@@ -74,7 +77,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    MenuItemDisplayInfo getItem(int id) {
         return mData.get(id);
     }
 
@@ -94,7 +97,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setmData(List<String> mData) {
+    public void setmData(List<MenuItemDisplayInfo> mData) {
         notifyDataSetChanged();
         this.mData = mData;
     }

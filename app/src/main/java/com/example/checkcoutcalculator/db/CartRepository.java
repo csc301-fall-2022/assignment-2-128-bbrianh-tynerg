@@ -27,7 +27,6 @@ public class CartRepository {
      */
     public void addItem(int productId) {
         if (itemDao.isItemInCart(productId)) {
-            CartItem item = itemDao.getCartItem(productId);
             itemDao.addExistingCartItem(productId);
         } else {
             CartItem newItem = new CartItem(productId);
@@ -36,16 +35,23 @@ public class CartRepository {
     }
 
     /**
-     * Remove item using product Id from cart
+     * Decrease item quantity by 1 using product Id from cart
      * @param productId the product Id of the removed item
      */
-    public void removeItem(int productId) {
+    public void decrementItemQuantity(int productId) {
         CartItem item = itemDao.getCartItem(productId);
         if (item.quantity - 1 > 0) {
             itemDao.decreaseCartItem(productId);
         } else {
             itemDao.deleteEntireCartItem(productId);
         }
+    }
+
+    /**
+     * Remove item entirely from database
+     */
+    public void removeEntireItem(int productId) {
+        itemDao.deleteEntireCartItem(productId);
     }
 
     /**
