@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -44,6 +45,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
         holder.cartPriceTextView.setText(String.format("Price: $%.2f", item.price));
         holder.cartSubtotalTextView.setText(String.format("Subtotal: $%.2f", item.subtotal));
         holder.cartItemQuantityView.setText(String.valueOf(item.quantity));
+        holder.cartTaxableCheck.setChecked(item.taxable);
 
         holder.cartButtonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +82,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
         TextView cartPriceTextView;
         TextView cartSubtotalTextView;
         EditText cartItemQuantityView;
+        CheckBox cartTaxableCheck;
 
         Button cartButtonRemove;
         Button cartButtonAdd;
@@ -92,6 +95,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
             cartPriceTextView = itemView.findViewById(R.id.textview_cart_row_price);
             cartSubtotalTextView = itemView.findViewById(R.id.textview_cart_row_total);
             cartItemQuantityView = itemView.findViewById(R.id.editTextNumber_cart_row);
+            cartTaxableCheck = itemView.findViewById(R.id.checkbox_cart_row);
 
             cartButtonRemove = itemView.findViewById(R.id.button_cart_row);
             cartButtonAdd = itemView.findViewById(R.id.button_cart_row_add);
