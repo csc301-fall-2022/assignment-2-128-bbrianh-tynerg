@@ -7,10 +7,9 @@ After considering available options, incoporated the team's familiarity with dif
 Firstly, for the frontend UI, since the application does not need many pages, we choose to use one single Activity with several fragments. This way, the application is more expandable since the fragments could be reused for different functionalities in further development. Also, the performance of navigating between fragments is more efficient.
 
 For the backend, which is the Model part in MVVM architecture, We included the logic of fetching data from the database and the calculations about the price and tax of the products. The Model has three main respsonsibility:
-
 1. Read data from database. Menu and Cart data is fetched from menuItem and cartItem table in the databse respectively
-2. Write data to database. When an item is added to cart, the model needs to update the cartItem table in the database
-3. Price and tax calculation. After the cart data is fetched, we need to preform further calculations to obtain the price and tax information
+3. Write data to database. When an item is added to cart, the model needs to update the cartItem table in the database
+4. Price and tax calculation. After the cart data is fetched, we need to preform further calculations to obtain the price and tax information
 
 Lastly, we chose Android Room as the database for this application since it directly interacts with the storage of the device. Threrefore, the data from the app can be store in the phone itself and there is no need for deploying the database separately on a server.
 
