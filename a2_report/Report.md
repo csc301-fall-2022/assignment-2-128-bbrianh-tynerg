@@ -56,7 +56,7 @@ The details of the design decisions made for the frontend, backend, and database
 - Components may behave differently for IOS and Android platforms.
 - Testing can be difficult to manage.
 
-### Backend
+## Backend
 
 #### i). Django
 
