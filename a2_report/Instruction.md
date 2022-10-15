@@ -53,7 +53,7 @@ Please feel free to play around with the app to see if every feature described a
 
 ### Running Unit Tests
 
-**unit tests that does not need an emulator**
+**Unit tests that does not need an emulator**
 - clone the repo to your local device using
 ```git clone https://github.com/csc301-fall-2022/assignment-2-128-bbrianh-tynerg.git```
 - cd to the directory of the source file
@@ -65,7 +65,7 @@ Expected terminal result:
 <img src="https://github.com/csc301-fall-2022/assignment-2-128-bbrianh-tynerg/blob/report/images/test1.jpg" width=700>
 
 
-**unit tests that does need an emulator**
+**Unit tests that does need an emulator**
 > _Note:_ make sure to uninstall the app before running this test
 - connect an android emulator to your computer
 - cd to the directory of the source file
@@ -75,6 +75,14 @@ Expected terminal result:
 Expected terminal result:
 
 <img src="https://github.com/csc301-fall-2022/assignment-2-128-bbrianh-tynerg/blob/report/images/test2.jpg" width=700 >
+
+**Extensibility**
+
+In order to extend on the existing test, future test files can be added through the fllowing approach:
+
+- add java test files under /app/src/androidTest/java/com/example/checkoutcalculator/ for tests run on device
+- add java test files under /app/src/test/java/com/example/checkoutcalculator/ for tests run on host machine
+
 
 ## Auto Deployment
 
