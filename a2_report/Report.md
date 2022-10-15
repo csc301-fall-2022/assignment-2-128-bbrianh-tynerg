@@ -56,22 +56,43 @@ The details of the design decisions made for the frontend, backend, and database
 - Components may behave differently for IOS and Android platforms.
 - Testing can be difficult to manage.
 
-## Backend
+### Backend
 
-#### i). TODO
+#### i). Django
 
 **Pros**
-- TODO
+- Since Django is a python-based platform, the code is easy to read and comprehen
+- Django supports verious frameworks that works on server
+- It has a diverse ecosystem, which means it has many librarys and packages for different uses
 
 **Cons**
-- TODO
+- Besides the mobile UI, we need to set up another Django server with Rest API
+- It requires internet connection to transfer data. This would be a little overloaded for this project.
+- We need to get familiar with another language for frontend developement
 
-#### ii). TODO (Chosen)
+#### ii). Node.js
+
+**Pros**
+- It has frameworks such as AndroidJS that supports Android app development
+- Javascript could also be used in frontend in Android development
+- It can be used for developing cross-platform apps so we could build something that works on both Android and iOS
+
+**Cons**
+- Both of use are unfamiliar with Node.js
+- AndroidJS framework needs to communicate with Native components in Android (which is written in Java) so it would be less efficient than using Java directly
+- Node.js is more popular in web app development than in native mobile app development
+
+#### iii). Java (Chosen)
  
 **Pros**
-- TODO
+- Most of the Android native libraries and components are written in Java
+- Both of us had experience in Android development with Java
+- Java is strongly supported by Android Studio, which is a powerful IDE that increases our efficiency in Android app development
+- Both front and back end can be developed in Java
+
 **Cons**
-- TODO
+- Java is difficult to learn compared to python and javascript
+- Java is less readable compared to python
 
 ## Database
 
