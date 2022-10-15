@@ -5,6 +5,7 @@ on:
     
 jobs:
   build:
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
