@@ -3,16 +3,16 @@
 
 ## Brief Summary
 
-After considering available options, incoporated the team's familiarity with different technologies, and the requirements and tech stack of the course project, we chose to build an android app using Java with the MVVM architecture. 
+We assume that our app needs to run on Android. After considering available options, incoporated the team's familiarity with different technologies, and our assumption to develope on Android, we chose to build an android app using Java on both frontend and backend as it is the official and one of the most popular languages for Android development.
 
-Firstly, for the frontend UI, since the application does not need many pages, we choose to use one single Activity with several fragments. This way, the application is more expandable since the fragments could be reused for different functionalities in further development. Also, the performance of navigating between fragments is more efficient.
+Firstly, for the frontend UI, since the application does not require many complex interface navigation, we choose to use one single Activity with several fragments. This way, the application is more expandable since the fragments could be reused for different functionalities in further development. Also, the performance of navigating between fragments is more efficient.
 
-For the backend, which is the "Model" part in MVVM architecture, We included the logic of fetching data from the database and the calculations about the price and tax of the products: The Model has three main respsonsibility:
+For the backend, we included the logic of fetching data from the database and the calculations for the price and tax of the products. The backend has three main respsonsibility:
 1. Read data from database: Menu and Cart data is fetched from menuItem and cartItem table in the databse respectively
 2. Write data to database: When an item is added to cart, the model needs to update the cartItem table in the database
 3. Price and tax calculation: After the cart data is fetched, we need to preform further calculations to obtain the price and tax information
 
-Lastly, we chose Android Room as the database for this application since it directly interacts with the storage of the device. Threrefore, the data from the app can be store in the phone itself and there is no need for deploying the database separately on a server.
+Lastly, we chose Android Room as the database for this application since it can be set up and run locally on the Android device. Since it is able to  directly interact with the storage of the device, the data from the app can be stored in the phone itself and there is no need for deploying the database separately on a server. We could also implement user-friendly save and load feature for our calculator app. The database consits of 2 tables, namely cartItem and menuItem. The cartItem table stores the items in the cart and is updated corresponding to the user's action. The menuItem table provides information for each product on the menu, including the name, price and whether it is a taxed product. For simplicity of this project, the database is populated with a fixed set of data when the app starts, but this process could be replaced by using APIs to fetch data from a remote server in future updates.
 
 The details of the design decisions made for the frontend, backend, and database are described in the following section.
  
