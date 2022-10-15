@@ -17,54 +17,45 @@ The details of the design decisions made for the frontend, backend, and database
 
 ## Part 1: Design Decisions
  
-### Language
+### Frontend
 
-#### i). Kotlin
+#### i). Xamarin
 **Pros**
-- Typically requires less code than Java for the same functionality.
-- Lightweight and faster to compile.
-- Complete and up to date Tutorial in the Google's Android developer.
+- Mature cross platform language.
+- Compatible with the MVVM architecture.
+- Supports a wider variety of devices.
 - Matured language that is getting more popular for recent Android Apps.
 
 **Cons**
-- Both team members have no experience using Kotlin.
-- The course project is not implemented using Kotlin.
+- Both team members have no experience with Xamarin.
+- UI is challanging and time-consuming.
+- App size tends to be large.
 
 #### ii). Java (Chosen)
  
 **Pros**
 - Both members are familiar with Java programming.
 - Same language as the course project.
-- Supports a wider variety of systems and devices.
 - One of the most popular languages in software development.
+- Full support for Android.
 
 **Cons**
+- Only supports Android.
 - Many tutorials for Java Android are old and contain deprecated functions.
 - The structure of the code is somewhat heavy and can be difficult to understand.
- 
-### Frontend
 
-#### i). Building the UI using Activities
-
-**Pros**
-- Both team members have some experience in building the app using multiple activities. 
-- Interaction between different activities are easier to manage.
-
-**Cons**
-- Not recommended since fragment is introduced in Android 11.
-- Transition between activities is more expensive.
-- Not resuable.
-
-#### ii). Building the UI using one single Activity + several Fragments (Chosen)
+#### ii). React Native
  
 **Pros**
-- Fragments are reusable.
-- Switching between fragments are more efficient.
-- recommended structure by the 
+- Mature cross platform language.
+- Compatible with the MVVM architecture.
+- Team members have experience with JavaScript and React.
+- One of the most popular languages in corss platform mobile development.
 
 **Cons**
-- Both members are not familiar with fragment lifecycle.
-- Interaction between a fragment and it's host activity can be difficult to understand/manage.
+- Cross platform may require more time to develop.
+- Components may behave differently for IOS and Android platforms.
+- Testing can be difficult to manage.
 
 ### Backend
 
@@ -121,11 +112,26 @@ The details of the design decisions made for the frontend, backend, and database
 - Both members are not familiar with Android Room.
 - Data is not recoverable once deleted since there is no server.
 
+### Frontend Structure
 
+#### i). Building the UI using Activities
 
+**Pros**
+- Both team members have some experience in building the app using multiple activities. 
+- Interaction between different activities are easier to manage.
 
+**Cons**
+- Not recommended since fragment is introduced in Android 11.
+- Transition between activities is more expensive.
+- Not resuable.
 
+#### ii). Building the UI using one single Activity + several Fragments (Chosen)
+ 
+**Pros**
+- Fragments are reusable.
+- Switching between fragments are more efficient.
+- recommended structure by the 
 
-
-
-
+**Cons**
+- Both members are not familiar with fragment lifecycle.
+- Interaction between a fragment and it's host activity can be difficult to understand/manage.
