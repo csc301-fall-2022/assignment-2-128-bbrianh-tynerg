@@ -1,8 +1,9 @@
-# CSC301 Assignment 2 -- Checkout Calculator
+# CSC301 Assignment 2 -- Checkout Calculator -- Design Decision Report
+>_Note_: This document is the report for design decision. For instructions to use the app and a detailed description for the UI, please refer to [the instruction file](https://github.com/csc301-fall-2022/assignment-2-128-bbrianh-tynerg/blob/report/a2_report/Instruction.md).
 
 ## Brief Summary
 
-After considering available options, incoporated the team's familiarity with different technologies, and the requirements and tech stack of the course project, we chose to build an android app using Java with MVVM architecture. 
+After considering available options, incoporated the team's familiarity with different technologies, and the requirements and tech stack of the course project, we chose to build an android app using Java with the MVVM architecture. 
 
 Firstly, for the frontend UI, since the application does not need many pages, we choose to use one single Activity with several fragments. This way, the application is more expandable since the fragments could be reused for different functionalities in further development. Also, the performance of navigating between fragments is more efficient.
 
@@ -14,10 +15,8 @@ For the backend, which is the "Model" part in MVVM architecture, We included the
 Lastly, we chose Android Room as the database for this application since it directly interacts with the storage of the device. Threrefore, the data from the app can be store in the phone itself and there is no need for deploying the database separately on a server.
 
 The details of the design decisions made for the frontend, backend, and database are described in the following section.
-
-## Part 1: Design Decisions
  
-### Frontend
+## Frontend
 
 #### i). Xamarin
 **Pros**
@@ -37,7 +36,7 @@ The details of the design decisions made for the frontend, backend, and database
 - Both members are familiar with Java programming.
 - Same language as the course project.
 - One of the most popular languages in software development.
-- Full support for Android.
+- Full support for Android, can be used by both frontend and backend
 
 **Cons**
 - Only supports Android.
@@ -57,7 +56,7 @@ The details of the design decisions made for the frontend, backend, and database
 - Components may behave differently for IOS and Android platforms.
 - Testing can be difficult to manage.
 
-### Backend
+## Backend
 
 #### i). TODO
 
@@ -74,7 +73,7 @@ The details of the design decisions made for the frontend, backend, and database
 **Cons**
 - TODO
 
-### Database
+## Database
 
 #### i). Firebase
 **Pros**
@@ -112,7 +111,7 @@ The details of the design decisions made for the frontend, backend, and database
 - Both members are not familiar with Android Room.
 - Data is not recoverable once deleted since there is no server.
 
-### Frontend Structure
+## Frontend Structure
 
 #### i). Building the UI using Activities
 
