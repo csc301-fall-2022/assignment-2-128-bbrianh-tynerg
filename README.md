@@ -1,4 +1,7 @@
 # Checkout Calculator
+
+>_Note_: This is a brief summary of the documentations for this assignemnt, for complete documents, please refer to the [a2_report](https://github.com/csc301-fall-2022/assignment-2-128-bbrianh-tynerg/tree/main/a2_report) directory.
+
 This is a simple Android checkout calculator built with java.
 
 Contributors: Brian Ho, Junsong Guo
